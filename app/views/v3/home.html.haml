@@ -1,0 +1,43 @@
+:coffeescript
+    $ ->
+        console.warn "IS HAMMER INSTALLED?", Hammer
+    
+#touchpad
+    %h3#damn1 If swipe detected, text-color will change
+    #touch-square
+    %h2#damn TOUCH ME!
+    
+// IGNORE, BUT KEEP THIS LINE (Back button)   
+= render :partial => "application/back_to_root"
+    
+:scss
+    $touchpad-bg: desaturate(green, 70%);
+    $touch-square: lighten($touchpad-bg, 70%);
+    #touchpad{
+        height: 100%;
+        width: 100%;
+        color: white;
+        font-family: Avenir, sans-serif;
+        font-size: 4em;
+        text-align: center;
+            
+        background: $touchpad-bg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        #touch-square{
+            width: 230px;
+            height: 230px;
+            background: $touch-square;
+            // left: 400px;
+            position: relative;
+        }
+    }
+    #back-button{
+        position: absolute;
+        z-index: 100;
+        top: 15px;
+        left: 15px;
+    }
+    

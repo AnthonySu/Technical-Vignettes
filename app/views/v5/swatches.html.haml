@@ -1,0 +1,67 @@
+.flexbox-container
+    #b1.flex-block
+    #b2.flex-block
+.flexbox-container
+    #b3.flex-block
+    #b4.flex-block
+.flexbox-container
+    #b5.flex-block
+    #b6.flex-block
+    #b7.flex-block
+.flexbox-container    
+    #b8.flex-block
+    #b9.flex-block
+    #b10.flex-block
+:scss
+    // Assume we chose the base color as read
+    $base: red;
+    $complement: complement($base);
+    .flexbox-container{
+        display: flex;
+        height: 25%;
+        justify-content: center;
+        align-content: flex-start;
+    }
+    .flex-block {
+        width: 180px;
+        height: 160px;
+    }
+    // Box #1: Assign the box to a base color of your choosing (e.g. $base: red)
+    #b1{
+        background: $base;
+    }   
+    // Box #2: Assign it to the complementary color of $base
+    #b1{
+        background: $complement;
+    }
+    // Box #3: Create a harmonious-mix of $base and $complement
+    #b3{
+        background: mix($base, $complement, 20%)
+    }
+    // Box #4: Create a harmonious-mix of $complement and $base
+    #b4{
+        background: mix($complement, $base, 30%)
+    }
+    
+    //Box #5, 6, 7: Create a mix-neutral of $base (#6), and lighten (#5), and darken (#7) that color. 
+    #b5{
+        background: mix($complement, $base, 25%)
+    }
+    #b6{
+        background: lighten(mix($complement, $base, 25%), 22%)
+    }
+    
+    #b7{
+        background: darken(mix($complement, $base, 25%), 20%)
+    }
+    // Box #8, 9, 10: Create a mix-neutral of $complement (#9), and lighten (#8), and darken (#10) that color. 
+    #b8{
+        background: mix($complement, $base, 25%)
+    }
+    #b9{
+        background: lighten(mix($base, $complement, 25%), 22%)
+    }
+    #b10{
+        background: darken(mix($base, $complement, 25%), 20%)
+    }
+    
